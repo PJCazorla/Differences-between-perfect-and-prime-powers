@@ -250,8 +250,9 @@ function modifiedKraus(C1, q, p, alphaOdd, f, tries : quadraticTwists := true)
 		/* We try the next suitable prime of the for l = 2kp+1.  */
 		l := nextValue(l, p);
 		
-		/* Here, we check if l is a prime not dividing the level N. */
-		suitable := (not ((N mod l) eq 0));
+		/* Here, we check if l is a prime not dividing the level N
+		   and different from q. */
+		suitable := (not ((N*q mod l) eq 0));
 		
 		/* In order for the prime to be suitable, we have to rule out 
 		   the possibility l | y. We check that here. */
@@ -280,7 +281,7 @@ function modifiedKraus(C1, q, p, alphaOdd, f, tries : quadraticTwists := true)
 				return false, {-1};
 			end if;
 							
-			suitable := (not ((N mod l) eq 0));
+			suitable := (not ((N*q mod l) eq 0));
 		
 			if suitable then 
 				if rational then 
@@ -467,8 +468,9 @@ function ruleOutThueMahler(C1, q, p, alphaOdd, nPrimes, newform, f2, rhs2, f3, r
 		/* We try the next suitable prime of the for l = 2kp+1.  */
 		l := nextValue(l, p);
 		
-		/* Here, we check if l is a prime not dividing the level N. */
-		suitable := (not ((N mod l) eq 0));
+		/* Here, we check if l is a prime not dividing the level N
+		   and different from q. */
+		suitable := (not ((N*q mod l) eq 0));
 		
 		/* We iterate until we find a suitable prime, with the same conditions as above. */
 		while not suitable do
@@ -480,7 +482,7 @@ function ruleOutThueMahler(C1, q, p, alphaOdd, nPrimes, newform, f2, rhs2, f3, r
 				return false, {-1};
 			end if;
 					
-			suitable := (not ((N mod l) eq 0));
+			suitable := (not ((N*q mod l) eq 0));
 		
 		end while;
 		
