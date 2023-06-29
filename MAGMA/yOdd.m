@@ -326,7 +326,6 @@ function findSolutionsAlphaGoodPrimes(C1, q, n, alphaOdd)
 	Q<r, s> := PolynomialRing(K, 2);
 	R<T> := PolynomialRing(Integers());
 	
-
 	/* We will need to do slightly different things depending on 
 	   whether -c is congruent to 1 modulo 4 or not, so we control
 	   this here.	   */

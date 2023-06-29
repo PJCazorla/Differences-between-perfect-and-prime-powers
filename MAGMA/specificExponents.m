@@ -913,12 +913,18 @@ function krausBiggerExponents(C1, q, alphaOdd, E, p, tries)
 	
 		p2 := ideal[1];
 		
-		/* We determine j such that q*p2^j is principal */
+		/* We determine j such that q*p2^j is principal and 
+           the corresponding value of omega such that 
+		   q*p2^j = <omega>. */
 		for ii in [0..hK] do
-			if IsPrincipal(qIdeal*p2^ii) then
+			qp2Principal, qp2generator := IsPrincipal(qIdeal*p2^ii);
+		
+			if qp2Principal then 
 				j := ii;
+				omega := qp2generator;
 				break;
 			end if;
+			
 		end for;
 		
 		/* We determine i and, with it, the value of n*
@@ -971,7 +977,7 @@ function krausBiggerExponents(C1, q, alphaOdd, E, p, tries)
 			end while;
 			
 			/* We need to work on O/ll, where ll is one of the
-			   two primes over l. We can choose both of them, so 
+			   two primes over l. We can choose any of them, so 
                we just consider the first one.			   */
 			factL := Factorisation(l*O);
 			Fl, pi := ResidueClassField(O, factL[1,1]);
@@ -982,13 +988,13 @@ function krausBiggerExponents(C1, q, alphaOdd, E, p, tries)
 			h := g^p;
 			
 			/* We know that the p-powers will be multiplied 
-			   by (\overline(beta)/beta)^(n*), so we build
-			   precisely that element. */
+			   by (\overline(omega)/omega)*(\overline(beta)/beta)^(n*), 
+			   so we build precisely that element. */
 			betatilde := pi(Conjugate(beta))*pi(beta)^(-1);
 			betatilden := betatilde^n;
 			
 			L := [];
-			mult := betatilden;
+			mult := betatilden*pi(Conjugate(omega))*pi(omega)^(-1);
 			
 			/* We iterate t times, where l = tp + 1. Then,
                we build the corresponding set.		*/
