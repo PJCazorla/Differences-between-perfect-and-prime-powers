@@ -13,6 +13,26 @@
 **              where C1 is squarefree and q is a prime. 
 **************************************************/
 
+/******************************************************************
+  How to use?
+  
+  First of all, set up the parameters corresponding to your pair in the 
+  function primepowers_search_general(.). Then, you can proceed to do
+  one of two things.
+  
+  If you want to check the validity of the upper bounds, use the functions
+  primepowers_check_itX. Please replace the parameters by the ones in the
+  Tables 9 and 10 and run it. They should be run sequentially (so 
+  primepowers_check_it1 first, then primepowers_check_it2, and so on).
+  
+  If you want to look for your own bounds, change the parameters as you 
+  want in the functions primepowers_search_itX. First, you should run 
+  primepowers_search_it1 and the bound that you find can then be used 
+  for the subsequent functions (primepowers_search_it2, which will refine 
+  the bound, and the obtained upper bound can be used for primepowers_search_it3.
+  
+******************************************************************/
+
 /* It is necessary to use Mignotte and Voutier's code for this to work!
    Download it if you do not have it in your computer. */
 read("lfl3\\kit-alpha1Variable.gp");
@@ -21,7 +41,7 @@ read("lfl3\\kit-alpha1Variable.gp");
 ** Name: primepowers_check_itX
 ** Description: This function checks whether the parameters provided
 **              yield the desired bound. This can be used to check the 
-**              validity of Tables 10 and 11 in the paper.
+**              validity of Tables 9 and 10 in the paper.
 **
 ** Arguments: None, but replace the input parameters as desired.
 **
