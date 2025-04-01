@@ -38,10 +38,14 @@
 	 -> specificExponents.m: This includes all the techniques that we present in 
 	                         Section 7 in order to show that there are no exponents for
 							 a fixed value of p.
+	 
+  	 -> classGroups.m: This includes an elementary script to check the validity of 
+                           our work in Section 7.3. In particular, we show that all the 
+			   class groups that we consider are cyclic.
 							 
  -> PARI-GP: This includes the computations on linear forms in logarithms in Section 8.
              We note that this code is an adaptation of (2), and it is required to 
-			 work in conjunction with it. Numbers should be modified inside the code in 
-			 order for this to work.
+	     work in conjunction with it. Numbers should be modified inside the code in 
+	     order for this to work.
 			 
      -> lfl.gp: Module including the functions and quantities relevant to our problem. 
