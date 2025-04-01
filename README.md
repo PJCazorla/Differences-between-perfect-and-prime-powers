@@ -47,5 +47,10 @@
              We note that this code is an adaptation of (2), and it is required to 
 	     work in conjunction with it. Numbers should be modified inside the code in 
 	     order for this to work.
-			 
+      
      -> lfl.gp: Module including the functions and quantities relevant to our problem. 
+
+ -> Heegner Points: For the curious reader! This includes the generators for the 
+                    infinite part of the two elliptic curves in section 2 which
+		    needed the Heegner point methodology. Points are very big!
+      
